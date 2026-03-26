@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Pantry — Ricette</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+    <!-- Header con navigazione -->
+    <header class="header">
+        <h1>Smart Pantry</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="pantry.html">Dispensa</a></li>
+                <li><a href="recipes.html" class="active">Ricette</a></li>
+                <li><a href="#" id="btn-logout">Esci</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Toggle per filtrare ricette -->
+        <div class="toggle-container">
+            <span>Solo ingredienti in dispensa</span>
+            <label class="toggle-switch">
+                <input type="checkbox" id="toggle-pantry-only">
+                <span class="toggle-slider"></span>
+            </label>
+            <span>Anche altri ingredienti</span>
+        </div>
+
+        <!-- Pulsante per cercare ricette -->
+        <button class="btn btn-primary" id="btn-search-recipes">Cerca ricette</button>
+
+        <!-- Lista ricette -->
+        <div id="recipe-list" class="recipe-list">
+            <div class="empty-state">
+                <p>Clicca "Cerca ricette" per trovare ricette basate sulla tua dispensa</p>
+            </div>
+        </div>
+
+        <!-- Loader -->
+        <div id="recipe-loader" class="loader" style="display: none;">
+            Ricerca ricette in corso...
+        </div>
+    </div>
+
+    <script src="../assets/js/recipes.js"></script>
+</body>
+</html>

@@ -20,7 +20,7 @@ async function searchRecipes() {
     const pantryOnly = !togglePantryOnly.checked;
 
     try {
-        const response = await fetch('/api/recipes/suggest.php?pantry_only=' + pantryOnly);
+        const response = await fetch('../api/recipes/suggest.php?pantry_only=' + pantryOnly);
         const data = await response.json();
 
         recipeLoader.style.display = 'none';
@@ -104,7 +104,7 @@ btnSearchRecipes.addEventListener('click', searchRecipes);
 btnLogout.addEventListener('click', async function (e) {
     e.preventDefault();
     try {
-        await fetch('/api/auth/logout.php');
+        await fetch('../api/auth/logout.php');
     } catch (error) {
         // Ignora errori di rete durante il logout
     }

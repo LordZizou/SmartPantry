@@ -94,7 +94,7 @@ function stopScanner() {
  */
 async function lookupBarcode(barcode) {
     try {
-        const response = await fetch('/api/barcode/lookup.php?barcode=' + encodeURIComponent(barcode));
+        const response = await fetch('../api/barcode/lookup.php?barcode=' + encodeURIComponent(barcode));
         const data = await response.json();
 
         if (data.success) {

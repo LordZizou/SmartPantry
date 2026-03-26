@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Pantry — Login</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <!-- Contenitore principale autenticazione -->
+    <div class="auth-container">
+        <div class="auth-box">
+            <!-- Logo e titolo -->
+            <h2 id="auth-title">Accedi a Smart Pantry</h2>
+
+            <!-- Messaggio di errore/successo -->
+            <div id="auth-message" class="message"></div>
+
+            <!-- Form di login -->
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" placeholder="La tua email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="La tua password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Accedi</button>
+            </form>
+
+            <!-- Form di registrazione (nascosto di default) -->
+            <form id="register-form" style="display: none;">
+                <div class="form-group">
+                    <label for="register-username">Username</label>
+                    <input type="text" id="register-username" placeholder="Scegli un username" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" placeholder="La tua email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" placeholder="Minimo 6 caratteri" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Registrati</button>
+            </form>
+
+            <!-- Switcher tra login e registrazione -->
+            <div class="auth-switch">
+                <span id="switch-text">Non hai un account?</span>
+                <a href="#" id="switch-link">Registrati</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/auth.js"></script>
+</body>
+</html>

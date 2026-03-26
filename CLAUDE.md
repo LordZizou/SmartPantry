@@ -42,13 +42,13 @@ smart-pantry/
 - Non hardcodare mai chiavi nel codice
 
 ## Stato attuale
-- [ ] Struttura cartelle
-- [ ] Database schema
-- [ ] Autenticazione (register/login)
-- [ ] CRUD dispensa
-- [ ] Scanner barcode + OpenFoodFacts
-- [ ] Suggerimenti ricette
-- [ ] Valori nutrizionali
+- [x] Struttura cartelle
+- [x] Database schema
+- [x] Autenticazione (register/login)
+- [x] CRUD dispensa
+- [x] Scanner barcode + OpenFoodFacts
+- [x] Suggerimenti ricette
+- [x] Valori nutrizionali
 
 ## Note importanti
 - Il progetto è scolastico: il codice deve essere leggibile e commentato

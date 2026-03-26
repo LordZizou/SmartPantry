@@ -15,9 +15,9 @@ async function searchRecipes() {
     recipeLoader.style.display = 'block';
     recipeList.innerHTML = '';
 
-    // Il toggle NON selezionato = solo dispensa (pantry_only=true)
-    // Il toggle selezionato = anche altri ingredienti (pantry_only=false)
-    const pantryOnly = !togglePantryOnly.checked;
+    // Toggle selezionato = solo ingredienti in dispensa
+    // Toggle NON selezionato = anche altri ingredienti (default)
+    const pantryOnly = togglePantryOnly.checked;
 
     try {
         const response = await fetch('../api/recipes/suggest.php?pantry_only=' + pantryOnly);

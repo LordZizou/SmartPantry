@@ -42,11 +42,20 @@ $url = "https://api.spoonacular.com/recipes/findByIngredients?"
      . "&ranking=2"  // Minimizza ingredienti mancanti
      . "&apiKey=" . SPOONACULAR_API_KEY;
 
-$response = file_get_contents($url);
+// Usa cURL per la chiamata (file_get_contents può essere bloccato su XAMPP)
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_TIMEOUT, 15);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+$response = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+$curlError = curl_error($ch);
+curl_close($ch);
 
-if ($response === false) {
+if ($response === false || $httpCode !== 200) {
     http_response_code(502);
-    echo json_encode(['success' => false, 'error' => 'Errore nella comunicazione con Spoonacular']);
+    echo json_encode(['success' => false, 'error' => 'Errore nella comunicazione con Spoonacular: ' . $curlError]);
     exit;
 }
 

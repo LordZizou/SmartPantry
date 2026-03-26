@@ -28,11 +28,19 @@ if (empty($barcode)) {
 // Chiama l'API di OpenFoodFacts
 $url = "https://world.openfoodfacts.org/api/v0/product/" . urlencode($barcode) . ".json";
 
-$response = file_get_contents($url);
+// Usa cURL per la chiamata (file_get_contents può essere bloccato su XAMPP)
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_TIMEOUT, 15);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+$response = curl_exec($ch);
+$curlError = curl_error($ch);
+curl_close($ch);
 
 if ($response === false) {
     http_response_code(502);
-    echo json_encode(['success' => false, 'error' => 'Errore nella comunicazione con OpenFoodFacts']);
+    echo json_encode(['success' => false, 'error' => 'Errore nella comunicazione con OpenFoodFacts: ' . $curlError]);
     exit;
 }
 

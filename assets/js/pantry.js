@@ -1,7 +1,8 @@
 // Gestione CRUD dispensa via AJAX
 
 // Percorso base delle API
-const API_BASE = '/api';
+// Percorso relativo dalla cartella pages/ alla cartella api/
+const API_BASE = '../api';
 
 // Riferimenti DOM
 const productList = document.getElementById('product-list');

@@ -1,5 +1,8 @@
 // Gestione autenticazione (login e registrazione) via AJAX
 
+// Percorso base delle API (relativo alla posizione di index.html)
+const API_BASE = 'api';
+
 // Riferimenti agli elementi del DOM
 const loginForm = document.getElementById('login-form');
 const registerForm = document.getElementById('register-form');
@@ -69,7 +72,7 @@ loginForm.addEventListener('submit', async function (e) {
     }
 
     try {
-        const response = await fetch('/api/auth/login.php', {
+        const response = await fetch(API_BASE + '/auth/login.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
@@ -113,7 +116,7 @@ registerForm.addEventListener('submit', async function (e) {
     }
 
     try {
-        const response = await fetch('/api/auth/register.php', {
+        const response = await fetch(API_BASE + '/auth/register.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, email, password })
